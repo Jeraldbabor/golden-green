@@ -103,23 +103,23 @@ export default function Services() {
         <div className="mt-16 grid gap-12 lg:grid-cols-12">
           {/* Product visual */}
           <div className="reveal-left relative lg:col-span-5">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] bg-gradient-to-br from-forest-700 via-forest-800 to-forest-900 p-8 shadow-2xl">
-              {/* Sparkles */}
-              <div aria-hidden className="absolute inset-0 opacity-50">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] shadow-2xl ring-1 ring-forest-900/10">
+              <Image
+                src="/images/2.png"
+                alt="Golden Green Yellow Liquid Eraser bottle with its retail box packaging"
+                fill
+                sizes="(min-width: 1024px) 32rem, 80vw"
+                className="object-cover"
+              />
+              {/* Sparkles overlay */}
+              <div aria-hidden className="pointer-events-none absolute inset-0 opacity-60">
                 <div className="absolute left-[15%] top-[12%] h-1 w-1 rounded-full bg-gold-200" />
                 <div className="absolute right-[18%] top-[22%] h-1.5 w-1.5 rounded-full bg-gold-300" />
-                <div className="absolute left-[22%] bottom-[18%] h-1 w-1 rounded-full bg-gold-200" />
-                <div className="absolute right-[12%] bottom-[28%] h-1.5 w-1.5 rounded-full bg-gold-300" />
+                <div className="absolute left-[22%] bottom-[34%] h-1 w-1 rounded-full bg-gold-200" />
+                <div className="absolute right-[12%] bottom-[42%] h-1.5 w-1.5 rounded-full bg-gold-300" />
               </div>
-              <div className="relative h-full w-full">
-                <Image
-                  src="/product/exploded.png"
-                  alt="Exploded view of the Golden Green bottle — bamboo cap, leak-proof inner plug, biodegradable lining, glass bottle"
-                  fill
-                  sizes="(min-width: 1024px) 32rem, 80vw"
-                  className="object-contain"
-                />
-              </div>
+              {/* Bottom gradient for label legibility */}
+              <div aria-hidden className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-forest-950/85 via-forest-900/60 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-cream/90">
                 <div>
                   <div className="text-xs uppercase tracking-wider text-gold-300/80">
@@ -142,7 +142,6 @@ export default function Services() {
               <li
                 key={f.title}
                 className="reveal-up group relative rounded-2xl border border-forest-100 bg-cream p-6 lift"
-                style={{ animationDelay: `${i * 90}ms` }}
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold-100 text-gold-700 transition group-hover:bg-gold-200 group-hover:text-gold-800">
                   {f.icon}

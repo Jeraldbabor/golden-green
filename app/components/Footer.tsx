@@ -16,8 +16,14 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <a href="#top" className="inline-flex items-center gap-3">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-forest-700 ring-2 ring-gold-300 ring-offset-2 ring-offset-cream-dark">
-                <Image src="/logo.png" alt="" width={32} height={32} className="object-contain" />
+              <span className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full ring-2 ring-gold-300 ring-offset-2 ring-offset-cream-dark">
+                <Image
+                  src="/logo/logo1.png"
+                  alt="Golden Green logo"
+                  width={96}
+                  height={96}
+                  className="h-full w-full object-cover"
+                />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-display text-xl font-semibold text-forest-800">

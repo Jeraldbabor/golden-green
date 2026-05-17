@@ -6,13 +6,13 @@ export default function About() {
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-12 lg:gap-20 lg:px-10">
         {/* Image side */}
         <div className="reveal-left relative lg:col-span-5">
-          <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] bg-gradient-to-br from-gold-200/60 via-cream-dark to-forest-100">
+          <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] bg-gradient-to-br from-gold-200/60 via-cream-dark to-forest-100 shadow-xl">
             <Image
-              src="/ingredients/turmeric.png"
-              alt="Turmeric root and powder — the natural pigment behind Golden Green"
+              src="/images/3.png"
+              alt="Golden Green bottle with turmeric — the natural pigment behind the formula"
               fill
               sizes="(min-width: 1024px) 28rem, 80vw"
-              className="object-contain p-8"
+              className="object-cover"
             />
             {/* Decorative ring */}
             <div className="absolute inset-4 rounded-[1.75rem] ring-1 ring-forest-700/10" />
@@ -74,11 +74,10 @@ export default function About() {
               { label: "Plant-based", desc: "Turmeric pigment" },
               { label: "Refillable", desc: "Glass + bamboo" },
               { label: "Non-toxic", desc: "Odor-free" },
-            ].map((p, i) => (
+            ].map((p) => (
               <li
                 key={p.label}
                 className="reveal-up rounded-xl border border-forest-100 bg-cream-dark/40 p-4 lift"
-                style={{ animationDelay: `${i * 80}ms` }}
               >
                 <div className="font-display text-lg font-semibold text-forest-900">
                   {p.label}

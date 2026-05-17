@@ -43,7 +43,7 @@ export default function Plans() {
           {/* Vertical gold line */}
           <div
             aria-hidden
-            className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-gold-300 via-gold-400 to-forest-500 lg:left-1/2 lg:-translate-x-1/2"
+            className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-gold-300 via-gold-400 to-forest-500 lg:left-1/2 lg:-translate-x-1/2"
           />
 
           <ul className="space-y-12 lg:space-y-20">
@@ -59,7 +59,7 @@ export default function Plans() {
                   {/* Node */}
                   <div
                     aria-hidden
-                    className="absolute left-6 top-6 -translate-x-1/2 lg:left-1/2"
+                    className="absolute left-4 sm:left-6 top-6 -translate-x-1/2 lg:left-1/2"
                   >
                     <span className="relative flex h-5 w-5 items-center justify-center">
                       <span
@@ -79,7 +79,7 @@ export default function Plans() {
 
                   {/* Year side */}
                   <div
-                    className={`reveal-${isEven ? "right" : "left"} pl-16 lg:pl-0 ${
+                    className={`reveal-${isEven ? "right" : "left"} pl-12 sm:pl-16 lg:pl-0 ${
                       isEven ? "lg:text-left lg:pl-20" : "lg:text-right lg:pr-20"
                     }`}
                   >
@@ -97,7 +97,7 @@ export default function Plans() {
                   </div>
 
                   {/* Card side */}
-                  <div className={`reveal-${isEven ? "left" : "right"} pl-16 lg:pl-0`}>
+                  <div className={`reveal-${isEven ? "left" : "right"} pl-12 sm:pl-16 lg:pl-0`}>
                     <article
                       className={`rounded-2xl border bg-cream p-7 lift sm:p-8 ${
                         p.accent === "gold"

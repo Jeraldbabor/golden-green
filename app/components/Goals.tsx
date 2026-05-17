@@ -40,7 +40,6 @@ export default function Goals() {
             <li
               key={i}
               className="reveal-up group relative overflow-hidden rounded-2xl border border-forest-100 bg-cream p-7 lift"
-              style={{ animationDelay: `${i * 70}ms` }}
             >
               {/* Big watermark number */}
               <span

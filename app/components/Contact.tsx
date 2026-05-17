@@ -75,11 +75,10 @@ export default function Contact() {
         </div>
 
         <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {methods.map((m, i) => (
+          {methods.map((m) => (
             <li
               key={m.label}
               className="reveal-up"
-              style={{ animationDelay: `${i * 90}ms` }}
             >
               <a
                 href={m.href}

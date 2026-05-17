@@ -75,7 +75,7 @@ export default function Hero() {
             Plant-based · Refillable · Non-toxic
           </span>
 
-          <h1 className="reveal-up mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-forest-900 sm:text-6xl lg:text-7xl">
+          <h1 className="reveal-up mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-forest-900 sm:text-5xl md:text-6xl lg:text-7xl">
             Correct <span className="italic text-gold-600">fast</span> that
             will <span className="relative inline-block">
               last
@@ -95,7 +95,7 @@ export default function Hero() {
             </span>.
           </h1>
 
-          <p className="reveal-up mt-8 max-w-lg text-lg leading-8 text-forest-800/85" style={{ animationDelay: "60ms" }}>
+          <p className="reveal-up mt-8 max-w-lg text-lg leading-8 text-forest-800/85">
             Crafting a seamless blend of sustainability and function, the{" "}
             <strong className="font-semibold text-forest-900">
               Golden Green Yellow Liquid Eraser
@@ -105,7 +105,7 @@ export default function Hero() {
             eliminating plastic waste.
           </p>
 
-          <div className="reveal-up mt-10 flex flex-wrap items-center gap-4" style={{ animationDelay: "120ms" }}>
+          <div className="reveal-up mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#about"
               className="group inline-flex items-center gap-2 rounded-full bg-forest-700 px-7 py-3.5 text-sm font-semibold text-cream shadow-lg shadow-forest-800/20 transition hover:bg-forest-800 hover:shadow-xl"
@@ -123,7 +123,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <dl className="reveal-fade mt-12 grid max-w-md grid-cols-3 gap-6" style={{ animationDelay: "200ms" }}>
+          <dl className="reveal-fade mt-12 grid max-w-md grid-cols-3 gap-6">
             {[
               { k: "15 mL", v: "glass bottle" },
               { k: "100%", v: "plant-based" },
@@ -150,18 +150,18 @@ export default function Hero() {
               className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-gold-300/50 via-gold-200/20 to-forest-200/0 blur-2xl"
             />
             {/* Bottle image */}
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm">
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-2xl ring-1 ring-forest-900/10">
               <Image
-                src="/hero/bottle.png"
-                alt="Golden Green Yellow Liquid Eraser bottle with bamboo cap"
+                src="/images/1.png"
+                alt="Golden Green Yellow Liquid Eraser bottle with bamboo cap, set against bamboo stalks and turmeric"
                 fill
                 priority
                 sizes="(min-width: 1024px) 28rem, 80vw"
-                className="object-contain drop-shadow-2xl"
+                className="object-cover"
               />
             </div>
             {/* Floating chips */}
-            <div className="absolute -left-2 top-[22%] hidden rounded-2xl border border-forest-100 bg-cream/95 px-4 py-3 shadow-xl backdrop-blur sm:flex items-center gap-3 float-medium">
+            <div className="absolute -left-2 top-[22%] hidden rounded-2xl border border-forest-100 bg-cream/95 px-4 py-3 shadow-xl backdrop-blur lg:flex items-center gap-3 float-medium">
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gold-100">
                 <span className="text-gold-600" aria-hidden>🌿</span>
               </span>
@@ -174,7 +174,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            <div className="absolute -right-2 bottom-[18%] hidden rounded-2xl border border-forest-100 bg-cream/95 px-4 py-3 shadow-xl backdrop-blur sm:flex items-center gap-3 float-slow">
+            <div className="absolute -right-2 bottom-[18%] hidden rounded-2xl border border-forest-100 bg-cream/95 px-4 py-3 shadow-xl backdrop-blur lg:flex items-center gap-3 float-slow">
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-forest-100">
                 <span className="text-forest-700" aria-hidden>♻</span>
               </span>
@@ -192,7 +192,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll cue */}
-      <div className="reveal-fade mx-auto mt-16 flex w-fit flex-col items-center gap-2 text-forest-700/70" style={{ animationDelay: "260ms" }}>
+      <div className="reveal-fade mx-auto mt-16 flex w-fit flex-col items-center gap-2 text-forest-700/70">
         <span className="text-[10px] uppercase tracking-[0.25em]">Scroll</span>
         <span className="block h-8 w-px animate-pulse bg-forest-500/50" />
       </div>

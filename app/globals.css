@@ -196,9 +196,9 @@
   transition: transform 280ms ease, opacity 200ms ease;
   transform-origin: center;
 }
-#nav-toggle:checked ~ label .nav-line-1 { transform: translateY(8px) rotate(45deg); }
-#nav-toggle:checked ~ label .nav-line-2 { opacity: 0; }
-#nav-toggle:checked ~ label .nav-line-3 { transform: translateY(-8px) rotate(-45deg); }
+.nav-toggle[data-open="true"] .nav-line-1 { transform: translateY(8px) rotate(45deg); }
+.nav-toggle[data-open="true"] .nav-line-2 { opacity: 0; }
+.nav-toggle[data-open="true"] .nav-line-3 { transform: translateY(-8px) rotate(-45deg); }
 
 /* Card hover lift */
 .lift {
