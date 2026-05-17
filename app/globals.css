@@ -1,26 +1,229 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-cream: #fdf8ec;
+  --color-cream-dark: #f4ecd2;
+
+  --color-forest-50:  #f1f8f1;
+  --color-forest-100: #def0de;
+  --color-forest-200: #bde0bd;
+  --color-forest-300: #8fc78f;
+  --color-forest-400: #5fa75f;
+  --color-forest-500: #3f8a3f;
+  --color-forest-600: #2f6f2f;
+  --color-forest-700: #25592a;
+  --color-forest-800: #1e4622;
+  --color-forest-900: #0f2d14;
+  --color-forest-950: #061309;
+
+  --color-gold-50:  #fff8e1;
+  --color-gold-100: #ffeeb3;
+  --color-gold-200: #ffe080;
+  --color-gold-300: #ffd24d;
+  --color-gold-400: #f2bd2a;
+  --color-gold-500: #d99e15;
+  --color-gold-600: #b87f0a;
+  --color-gold-700: #8c5e08;
+  --color-gold-800: #5f3f05;
+  --color-gold-900: #3a2503;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background: var(--color-cream);
+    color: var(--color-forest-900);
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-gold-300);
+    color: var(--color-forest-900);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------- Scroll-driven reveal animations ---------- */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(48px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes reveal-left {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes reveal-right {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes reveal-zoom {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal-up,
+  .reveal-fade,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom {
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-duration: 1ms;
+  }
+  .reveal-up    { animation-name: reveal-up; }
+  .reveal-fade  { animation-name: reveal-fade; }
+  .reveal-left  { animation-name: reveal-left; }
+  .reveal-right { animation-name: reveal-right; }
+  .reveal-zoom  { animation-name: reveal-zoom; }
+}
+
+@supports not (animation-timeline: view()) {
+  .reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-zoom {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--color-forest-600), var(--color-gold-400), var(--color-gold-300));
+  z-index: 60;
+  pointer-events: none;
+}
+
+@supports (animation-timeline: scroll(root)) {
+  @keyframes scale-x {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+  .scroll-progress {
+    animation: scale-x linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+/* ---------- Hero parallax drift ---------- */
+@supports (animation-timeline: scroll(root)) {
+  @keyframes hero-drift {
+    from { transform: translateY(0) scale(1); }
+    to   { transform: translateY(-80px) scale(0.95); }
+  }
+  .hero-drift {
+    animation: hero-drift linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 80vh;
+  }
+}
+
+/* ---------- Navbar condense on scroll ---------- */
+@supports (animation-timeline: scroll(root)) {
+  @keyframes nav-condense {
+    from {
+      background-color: rgba(253, 248, 236, 0);
+      backdrop-filter: blur(0);
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    to {
+      background-color: rgba(253, 248, 236, 0.88);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 24px -12px rgba(15, 45, 20, 0.25);
+    }
+  }
+  .nav-condense {
+    animation: nav-condense linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 120px;
+  }
+}
+
+/* ---------- Floating decorations ---------- */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50%      { transform: translateY(-18px) rotate(6deg); }
+}
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50%      { transform: translateY(-24px) rotate(-8deg); }
+}
+@keyframes drift-horizontal {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(20px); }
+}
+
+.float-slow   { animation: float-slow 7s ease-in-out infinite; }
+.float-medium { animation: float-medium 5.5s ease-in-out infinite; }
+.float-drift  { animation: drift-horizontal 9s ease-in-out infinite; }
+
+/* Hero glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.06); }
+}
+.glow-pulse { animation: glow-pulse 6s ease-in-out infinite; }
+
+/* ---------- Mobile nav hamburger animation ---------- */
+.nav-line {
+  display: block;
+  height: 2px;
+  width: 22px;
+  border-radius: 9999px;
+  background: var(--color-forest-800);
+  transition: transform 280ms ease, opacity 200ms ease;
+  transform-origin: center;
+}
+#nav-toggle:checked ~ label .nav-line-1 { transform: translateY(8px) rotate(45deg); }
+#nav-toggle:checked ~ label .nav-line-2 { opacity: 0; }
+#nav-toggle:checked ~ label .nav-line-3 { transform: translateY(-8px) rotate(-45deg); }
+
+/* Card hover lift */
+.lift {
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 320ms ease;
+}
+.lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 40px -24px rgba(15, 45, 20, 0.35);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-zoom {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
